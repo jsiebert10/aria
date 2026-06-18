@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 
 np.random.seed(42)
 
-RUTA = os.path.join(os.path.dirname(__file__), "data")
+RUTA = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 
 MESES = [
     ("enero",      1),  ("febrero",   2),  ("marzo",     3),

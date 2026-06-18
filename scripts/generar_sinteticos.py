@@ -7,6 +7,8 @@
 import os
 import numpy as np
 import pandas as pd
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from config import RUTA_DATOS, TIPOS_PENALES_VALIDOS, MESES_ES
 
 # ── Parámetros configurables ──────────────────────────────────────────────────

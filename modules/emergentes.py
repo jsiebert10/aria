@@ -6,8 +6,7 @@
 import pandas as pd
 import plotly.graph_objects as go
 from dash import dcc, html, Input, Output, callback
-import sys, os
-sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+import os
 
 # ── Colores ───────────────────────────────────────────────────────────────────
 BG    = "#1a1d27"

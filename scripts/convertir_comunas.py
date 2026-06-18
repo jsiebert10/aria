@@ -9,8 +9,9 @@ import os
 import json
 import geopandas as gpd
 
-RUTA_SHP    = os.path.join(os.path.dirname(__file__), "data", "comunas.shp")
-RUTA_OUTPUT = os.path.join(os.path.dirname(__file__), "data", "comunas_santiago.geojson")
+_ROOT       = os.path.dirname(os.path.dirname(__file__))
+RUTA_SHP    = os.path.join(_ROOT, "data", "comunas.shp")
+RUTA_OUTPUT = os.path.join(_ROOT, "data", "comunas_santiago.geojson")
 
 COMUNAS_RM = [
     "Santiago","Providencia","Las Condes","Vitacura","Lo Barnechea",

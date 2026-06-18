@@ -9,7 +9,7 @@
 
 import os, sys, json
 
-RUTA_SALIDA = os.path.join(os.path.dirname(__file__), "data", "comunas_santiago.geojson")
+RUTA_SALIDA = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "comunas_santiago.geojson")
 
 COMUNAS_RM = [
     "Santiago", "Providencia", "Las Condes", "Vitacura", "Lo Barnechea",
