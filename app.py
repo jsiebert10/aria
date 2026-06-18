@@ -18,12 +18,12 @@ from config import (
     CENTRO_MAPA_DEFAULT, ZOOM_DEFAULT, COLORES_TIPOS,
     COLOR_ELIPSE_ACTUAL, COLOR_ELIPSE_ANTERIOR, COLOR_TRAYECTORIA, MIN_PUNTOS_CALCULO
 )
-from pages import movilidad as mod_movilidad
-from pages import emergentes as mod_emergentes
-from pages import placeholder as mod_placeholder
-from pages import analisis_avanzado as mod_avanzado
-from pages import agrupador_casos as mod_agrupador
-from pages import policy_brief_ia as mod_policy
+from modules import movilidad as mod_movilidad
+from modules import emergentes as mod_emergentes
+from modules import placeholder as mod_placeholder
+from modules import analisis_avanzado as mod_avanzado
+from modules import agrupador_casos as mod_agrupador
+from modules import policy_brief_ia as mod_policy
 
 # ── Carga de datos ─────────────────────────────────────────────────────────────
 DF_GLOBAL = ingesta.cargar_todos()

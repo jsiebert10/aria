@@ -218,8 +218,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 # ARIA — generated data (reproducible via `make data`)
-codes_nahita/pages/data/*.xlsx
-codes_nahita/pages/data/comunas_santiago.geojson
+data/*.xlsx
+data/comunas_santiago.geojson
 
 # Claude Code
 .claude/
