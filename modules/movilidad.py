@@ -409,6 +409,10 @@ def registrar_callbacks(app):
             com_sel = datos.get("comuna", "Todas")
 
             for feat in COMUNAS_GEOJSON["features"]:
+                geom_type = feat["geometry"]["type"]
+                if geom_type not in ("Polygon", "MultiPolygon"):
+                    continue
+
                 nombre = feat["properties"]["comuna"]
                 n      = conteo.get(nombre, 0)
                 pct    = n / max_c if max_c > 0 else 0
@@ -431,10 +435,12 @@ def registrar_callbacks(app):
 
                 coords = feat["geometry"]["coordinates"]
                 # Convertir a formato Leaflet [lat,lon]
-                if feat["geometry"]["type"] == "Polygon":
-                    positions = [[pt[1], pt[0]] for pt in coords[0]]
+                # Polygon coords: [ring, ...], MultiPolygon: [[ring, ...], ...]
+                if feat["geometry"]["type"] == "MultiPolygon":
+                    ring = coords[0][0]
                 else:
-                    positions = [[pt[1], pt[0]] for pt in coords[0][0]]
+                    ring = coords[0]
+                positions = [[pt[1], pt[0]] for pt in ring if isinstance(pt, (list, tuple)) and len(pt) >= 2]
 
                 comunas_layer.append(dl.Polygon(
                     positions=positions,
@@ -762,7 +768,7 @@ def registrar_callbacks(app):
                 name=lbl, showlegend=True))
 
         fig.update_layout(
-            **_layout(margin=dict(l=20,r=20,t=16,b=52)),
+            _layout(margin=dict(l=20,r=20,t=16,b=52)),
             xaxis=dict(visible=False, range=[-0.8, len(hist)-0.2]),
             yaxis=dict(visible=False, range=[-0.85, 0.85]),
             legend=dict(orientation="h", x=0.5, xanchor="center", y=-0.2,
