@@ -3,7 +3,7 @@ VENV     := $(CURDIR)/.venv
 BIN      := $(VENV)/bin
 DATA_DIR := $(CURDIR)/data
 
-.PHONY: venv install data geodata synthdata run clean
+.PHONY: venv install data geodata synthdata run clean docker docker-down
 
 ## Create virtualenv
 venv:
@@ -28,6 +28,16 @@ synthdata: install
 ## Run the dashboard
 run: install
 	$(BIN)/python app.py
+
+## Run with Docker (starts Colima if available)
+docker:
+	@colima status 2>/dev/null || colima start 2>/dev/null || true
+	docker-compose up --build
+
+## Stop Docker containers and Colima (if running)
+docker-down:
+	docker-compose down
+	@colima status 2>/dev/null && colima stop || true
 
 ## Remove venv and generated data
 clean:
