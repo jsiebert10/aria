@@ -199,4 +199,5 @@ if __name__ == "__main__":
     print("  ARIA v2.0 · Plataforma de Inteligencia Criminal")
     print(f"  {store.record_count:,} registros · {store.period_count} períodos · {store.comuna_count} comunas")
     print("─" * 60 + "\n  http://localhost:8050\n")
-    app.run(debug=False, host="127.0.0.1", port=8050)
+    host = os.environ.get("ARIA_HOST", "127.0.0.1")
+    app.run(debug=False, host=host, port=8050)

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.git/
+.gitignore
+.claude/
+.ruff_cache/
+data/*.xlsx
+data/comunas_santiago.geojson

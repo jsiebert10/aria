@@ -1,0 +1,10 @@
+services:
+  aria:
+    build: .
+    ports:
+      - "8050:8050"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - path: .env
+        required: false
